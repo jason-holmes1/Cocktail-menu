@@ -127,4 +127,13 @@
     bottom:0;
     width: 100%;
     text-align: center;
+    margin-right: 9px;
+  }
+  #contact-us{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 10px;
+
   }
