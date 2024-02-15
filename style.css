@@ -1,104 +1,150 @@
-body, h1, h2, h3, h4, p, ul, li, form, input, textarea, img {
+* {
     margin: 0;
-    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-  }
-  
-  /* Body styles */
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f0f0f0;
-    padding: 20px;
-  }
-  
-  /* Header styles */
-  header {
+}
+
+body {
+    padding: 1rem;
     text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Main content styles */
-  #cocktail-menu {
+    background-color: #fafafa;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  #cocktail-detail {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  .detail-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-  
-  .name {
-    margin-top: 10px;
-    font-size: 24px;
-  }
-  
-  .restaurant {
-    font-size: 18px;
-    color: #666;
-  }
-  
-  /* Rating and comment styles */
-  h3 {
-    margin-top: 20px;
-  }
-  
-  #rating-display {
-    font-weight: bold;
-  }
-  
-  #comment-display {
-    margin-bottom: 20px;
-  }
-  
-  /* Form styles */
-  #new-cocktail {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  textarea {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    padding: 0.5rem;
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  textarea {
-    height: 100px;
-  }
-  
-  #submit-button {
-    background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
+    background-color: #2F4F4F;
+}
+h2{
+    color: black;
+}
+#cocktail-menu {
+    display: flex;
+    overflow-x: auto;
+    margin: 1rem 0;
+    max-width: calc(100vw - 2rem);
+}
+
+#cocktail-menu img {
+    flex: 0 1 auto;
+    height: 150px;
+    margin-right: 0.5rem;
     cursor: pointer;
-    font-size: 16px;
-  }
-  
-  #submit-button:hover {
-    background-color: #45a049;
-  }
+}
+
+#cocktail-menu img:last-child {
+    margin-right: 0;
+}
+
+#cocktail-detail {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set height to fill the viewport */
+}
+
+.detail-image {
+    max-height: 50vh; /* Limit maximum height to 80% of viewport height */
+    max-width: 50%; /* Ensure image does not exceed container width */
+    object-fit: contain; /* Maintain aspect ratio without stretching */
+}
+
+.name,
+.spirit {
+    position: absolute;
+    left: 10px;
+    padding: 0.25rem 5rem 0.25rem 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.name {
+    bottom: 60px;
+}
+
+.cocktail {
+    bottom: 20px;
+}
+
+form {
+    margin: 1rem 0;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+input,
+textarea {
+    font-size: 1rem;
+    border: 1px solid black;
+    background-color: white;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    width: 100%;
+}
+
+input[type="submit"] {
+    color: white;
+    border: 1px solid white;
+    background-color: #2F4F4F;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+input[type="submit"]:active {
+    background-color: gray;
+}
+
+form h4 {
+    width: 100%;
+    padding: 0.25rem;
+    margin: 0.5rem 0;
+    color: white;
+    background-color: #2F4F4F;
+}
+
+#drop-down {
+    width: 150px;
+    height: 60px;
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: rgb(245, 244, 244);
+    font-size: 1.2em;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#drop-down:hover {
+    background: #315cfd;
+    color: white;
+    font-size: 1.5em;
+}
+
+#bottom-header {
+    background: #2F4F4F;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-right: 9px;
+}
+
+
+#contact-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 10px;
+
+}

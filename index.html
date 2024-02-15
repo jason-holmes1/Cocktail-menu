@@ -5,22 +5,25 @@
   <meta charset="utf-8" />
   <title>Cocktail Recipe Project</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <script defer src="./src/index.js"></script>
+  <script defer type="module" src="./src/index.js"></script>
 </head>
 
 <body>
   <header>
     <h1>Cocktail Recipe</h1>
   </header>
-
+<div id="cocktail-detail">
+    <img class="detail-image" src="https://www.foodandwine.com/thmb/d7VXAa1cezTsQ37pS6jYY2YX3YQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Americano-Cocktail-FT-RECIPE0123-4130dd6c79394106a8fb5948057a2bc5.jpg" />
+    <h2 class="name"> Americano </h2>
+    <h3 class="restaurant"> Pour the Campari and vermouth over ice into glass, add a splash of soda water and garnish with half orange slice. </h3>
+  </div>
   
   <div id="cocktail-menu">
   
-  </div>
-  <div 
-  id="drop-down">
-  <label1 for="category">Drinks</label1>
-  <select name="category"id="category">
+  <div id="drop-down">
+  
+    <label1 for="category">Drinks</label1>
+<select name="category"id="category">
     <option value="Bloody Mary">Bloody Mary</option>
     <option value="Cider">Cider</option>
     <option value="Colada">Colada</option>
@@ -37,33 +40,12 @@
     <option value="Sangria">Sangria</option>
     <option value="Shots">Shots</option>
     <option value="Tea">Tea</option>
-    </div>
-
-  <h3>Rating:</h3>
-  <p>
-    <span id='rating-display'>Insert rating here</span> / 10
-  </p>
-  <h3>Comment:</h3>
-  <p id='comment-display'>
-    Insert comment here
-  </p>
-
-
-  <form id="new-cocktail">
-    <h4>Add new cocktial</h4>
-    <label for="new-name">Name: </label>
-    <input type="text" name="name" id="new-name" />
-    <label for="new-spirit">spirit: </label>
-    <input type="text" name="cocktail" id="new-cocktail" />
-    <label for="new-image">Image: </label>
-    <input type="text" name="image" id="new-image" />
-    <label for="new-rating">Rating: </label>
-    <input type="number" name="rating" id="new-rating" />
-    <label for="new-comment">Comment: </label>
-    <textarea name="new-comment" name="new-comment" id="new-comment"></textarea>
-    <input type="submit" id='submit-button' value="Create" />
-  </form>
-  
+</select>
+<div>
+    
+<form id="contact-us">
+    <label id="bottom-header">Contact Us</label>
+</form>
 </body>
 
 </html>

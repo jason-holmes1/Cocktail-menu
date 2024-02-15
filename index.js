@@ -2,18 +2,20 @@ import("node-fetch").then((module) => {
   const fetch = module.default;
   // Your code using fetch goes here
 });
-let detail = document.getElementById("cocktail-detail");
+let menu = document.getElementById("cocktail-menu");
 let rating = document.getElementById("rating-display");
-let newDrink = document.getElementById("new-cocktail");
+let dropDown = document.getElementById("category");
 //Function to randomly display one of the Cocktails, along with its accompanying ingredients
 function displayRandom(fetchedData) {
   const randomIndex = Math.floor(Math.random() * fetchedData.length);
   const randomCocktail = fetchedData[randomIndex];
 
   // Update HTML content with the random cocktail and its ingredients
-  detail.textContent = `Cocktail: ${randomCocktail.strDrink}`;
+  menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
   rating.textContent = `Alcoholic: ${randomCocktail.strAlcoholic}`;
-  newDrink.textContent = `Glass: ${randomCocktail.strGlass}`;
+  dropDown.textContent = `Glass: ${randomCocktail.strGlass}`;
+
+  menu.append()
 }
 
 // Function to fetch data from the API and store it as a variable
