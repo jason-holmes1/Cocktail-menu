@@ -14,20 +14,18 @@ function displayRandom(fetchedData) {
   menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
   rating.textContent = `Alcoholic: ${randomCocktail.strAlcoholic}`;
   dropDown.textContent = `Glass: ${randomCocktail.strGlass}`;
-menu.addEventListener('mouseover', () => {
+  menu.addEventListener("mouseover", () => {
     const ingredients = getIngredients(randomCocktail);
     menu.textContent = `Ingredients: ${ingredients}`;
   });
 
   // Remove ingredients on mouseout
-  menu.addEventListener('mouseout', () => {
+  menu.addEventListener("mouseout", () => {
     menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
   });
 }
 
- // Add mouseover event listener to display ingredients when hovering over the menu
-  
-
+// Add mouseover event listener to display ingredients when hovering over the menu
 
 function getIngredients(cocktail) {
   let ingredients = [];
@@ -40,7 +38,7 @@ function getIngredients(cocktail) {
       ingredients.push(ingredient);
     }
   }
-  return ingredients.join(', ');
+  return ingredients.join(", ");
 }
 // Function to fetch data from the API and store it as a variable
 const fetchData = async () => {
