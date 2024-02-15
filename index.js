@@ -3,8 +3,9 @@ import("node-fetch").then((module) => {
   // Your code using fetch goes here
 });
 let menu = document.getElementById("cocktail-detail");
-let rating = document.getElementById("rating-display");
 let dropDown = document.getElementById("category");
+let ingredient =  document.querySelector(".ingredients");
+let drink = document.querySelector(".name");
 //Function to randomly display one of the Cocktails, along with its accompanying ingredients
 function displayRandom(fetchedData) {
   const randomIndex = Math.floor(Math.random() * fetchedData.length);
@@ -12,21 +13,29 @@ function displayRandom(fetchedData) {
 
   // Update HTML content with the random cocktail and its ingredients
   menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
-  rating.textContent = `Alcoholic: ${randomCocktail.strAlcoholic}`;
-  dropDown.textContent = `Glass: ${randomCocktail.strGlass}`;
+  ingredient.textContent = `Ingredients: ${randomCocktail.getIngredients}`;
+ // dropDown.textContent = `Glass: ${randomCocktail.strGlass}`;
   menu.addEventListener("mouseover", () => {
     const ingredients = getIngredients(randomCocktail);
     menu.textContent = `Ingredients: ${ingredients}`;
   });
 
-  // Remove ingredients on mouseout
+  
   menu.addEventListener("mouseout", () => {
     menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
   });
 }
-
-// Add mouseover event listener to display ingredients when hovering over the menu
-
+function matchDrink(fetchedData){
+      for (const cocktail of fetchedData) {
+    if (cocktail.strDrink === selectedDrink) {
+    
+      detailImage.src = cocktail.strDrinkThumb;
+      menu.textContent = `Cocktail: ${cocktail.strDrink}`;
+      rating.textContent = `Alcoholic: ${cocktail.strAlcoholic}`;
+      return; // Exit loop once match is found
+    }
+  }
+}
 function getIngredients(cocktail) {
   let ingredients = [];
   for (let i = 1; i <= 15; i++) {
@@ -61,9 +70,9 @@ const fetchData = async () => {
 const main = async () => {
   const fetchedData = await fetchData(); // Fetch data
   displayRandom(fetchedData);
-  console.log(fetchedData); // Log the fetched data
-  // You can further process or manipulate the fetched data here
+  console.log(fetchedData); 
+  matchDrink(fetchedData);
 };
 
-// Call the main function to execute the code
+
 main();
