@@ -2,7 +2,7 @@ import("node-fetch").then((module) => {
   const fetch = module.default;
   // Your code using fetch goes here
 });
-let menu = document.getElementById("cocktail-menu");
+let menu = document.getElementById("cocktail-detail");
 let rating = document.getElementById("rating-display");
 let dropDown = document.getElementById("category");
 //Function to randomly display one of the Cocktails, along with its accompanying ingredients
@@ -14,10 +14,34 @@ function displayRandom(fetchedData) {
   menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
   rating.textContent = `Alcoholic: ${randomCocktail.strAlcoholic}`;
   dropDown.textContent = `Glass: ${randomCocktail.strGlass}`;
+menu.addEventListener('mouseover', () => {
+    const ingredients = getIngredients(randomCocktail);
+    menu.textContent = `Ingredients: ${ingredients}`;
+  });
 
-  menu.append()
+  // Remove ingredients on mouseout
+  menu.addEventListener('mouseout', () => {
+    menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
+  });
 }
 
+ // Add mouseover event listener to display ingredients when hovering over the menu
+  
+
+
+function getIngredients(cocktail) {
+  let ingredients = [];
+  for (let i = 1; i <= 15; i++) {
+    const ingredient = cocktail[`strIngredient${i}`];
+    const measure = cocktail[`strMeasure${i}`];
+    if (ingredient && measure) {
+      ingredients.push(`${measure.trim()} ${ingredient}`);
+    } else if (ingredient) {
+      ingredients.push(ingredient);
+    }
+  }
+  return ingredients.join(', ');
+}
 // Function to fetch data from the API and store it as a variable
 const fetchData = async () => {
   try {
