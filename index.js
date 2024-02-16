@@ -25,6 +25,7 @@ function displayRandom(fetchedData) {
     menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
   });
 }
+//!checks for a match in the dropdown menu
 function matchDrink(fetchedData){
       for (const cocktail of fetchedData) {
     if (cocktail.strDrink == selectedDrink) {
@@ -36,6 +37,7 @@ function matchDrink(fetchedData){
     }
   }
 }
+//! stores all of the ingredients in an array
 function getIngredients(cocktail) {
   let ingredients = [];
   for (let i = 1; i <= 15; i++) {
@@ -49,7 +51,7 @@ function getIngredients(cocktail) {
   }
   return ingredients.join(", ");
 }
-// Function to fetch data from the API and store it as a variable
+//! Function to fetch data from the API and store it as a variable
 const fetchData = async () => {
   try {
     const response = await fetch(
@@ -66,7 +68,7 @@ const fetchData = async () => {
   }
 };
 
-// Function to demonstrate fetching data and storing it as a variable
+//! Function to demonstrate fetching data and storing it as a variable
 const main = async () => {
   const fetchedData = await fetchData(); // Fetch data
   displayRandom(fetchedData);
