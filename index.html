@@ -42,7 +42,98 @@
     <option value="Tea">Tea</option>
 </select>
 <div>
-    
+     <script>
+    function changeCocktail() {
+      // Get the selected drink from the dropdown menu
+      const selectedDrink = document.getElementById("category").value;
+
+     
+      switch (selectedDrink) {
+        case "Bloody Mary":
+          document.querySelector(".detail-image").src = "bloody-mary.jpg";
+          document.querySelector(".name").textContent = "Bloody Mary";
+          document.querySelector(".instructions").textContent = "Instructions for making a Bloody Mary.";
+          break;
+        case "Cider":
+          document.querySelector(".detail-image").src = "cider.jpg";
+          document.querySelector(".name").textContent = "Cider";
+          document.querySelector(".instructions").textContent = "Instructions for making a Cider.";
+          break;
+     case "Colada":
+          document.querySelector(".detail-image").src = "colada.jpg";
+          document.querySelector(".name").textContent = "Colada";
+          document.querySelector(".instructions").textContent = "Instructions for making a Colada.";
+          break;
+        case "Daiquiri":
+          document.querySelector(".detail-image").src = "daiquiri.jpg";
+          document.querySelector(".name").textContent = "Daiquiri";
+          document.querySelector(".instructions").textContent = "Instructions for making a Daiquiri.";
+          break;
+        case "Fizzy":
+          document.querySelector(".detail-image").src = "fizzy.jpg";
+          document.querySelector(".name").textContent = "Fizzy";
+          document.querySelector(".instructions").textContent = "Instructions for making a Fizzy cocktail.";
+          break;
+        case "Julep":
+          document.querySelector(".detail-image").src = "julep.jpg";
+          document.querySelector(".name").textContent = "Julep";
+          document.querySelector(".instructions").textContent = "Instructions for making a Julep.";
+          break;
+        case "Manhattan":
+          document.querySelector(".detail-image").src = "manhattan.jpg";
+          document.querySelector(".name").textContent = "Manhattan";
+          document.querySelector(".instructions").textContent = "Instructions for making a Manhattan.";
+          break;
+        case "Margarita":
+          document.querySelector(".detail-image").src = "margarita.jpg";
+          document.querySelector(".name").textContent = "Margarita";
+          document.querySelector(".instructions").textContent = "Instructions for making a Margarita.";
+          break;
+        case "Martini":
+          document.querySelector(".detail-image").src = "martini.jpg";
+          document.querySelector(".name").textContent = "Martini";
+          document.querySelector(".instructions").textContent = "Instructions for making a Martini.";
+          break;
+        case "Mojito":
+          document.querySelector(".detail-image").src = "mojito.jpg";
+          document.querySelector(".name").textContent = "Mojito";
+          document.querySelector(".instructions").textContent = "Instructions for making a Mojito.";
+          break;
+        case "Old Fashioned":
+          document.querySelector(".detail-image").src = "old-fashioned.jpg";
+          document.querySelector(".name").textContent = "Old Fashioned";
+          document.querySelector(".instructions").textContent = "Instructions for making an Old Fashioned.";
+          break;
+        case "Paloma":
+          document.querySelector(".detail-image").src = "paloma.jpg";
+          document.querySelector(".name").textContent = "Paloma";
+          document.querySelector(".instructions").textContent = "Instructions for making a Paloma.";
+          break;
+        case "Punch":
+          document.querySelector(".detail-image").src = "punch.jpg";
+          document.querySelector(".name").textContent = "Punch";
+          document.querySelector(".instructions").textContent = "Instructions for making a Punch.";
+          break;
+        case "Sangria":
+          document.querySelector(".detail-image").src = "sangria.jpg";
+          document.querySelector(".name").textContent = "Sangria";
+          document.querySelector(".instructions").textContent = "Instructions for making a Sangria.";
+          break;
+        case "Shots":
+          document.querySelector(".detail-image").src = "shots.jpg";
+          document.querySelector(".name").textContent = "Shots";
+          document.querySelector(".instructions").textContent = "Instructions for making Shots.";
+          break;
+  default:
+          // If no drink is selected change back to original image
+          document.querySelector(".detail-image").src = "default-image.jpg";
+          document.querySelector(".name").textContent = "Default Cocktail";
+          document.querySelector(".instructions").textContent = "Instructions for the default cocktail.";
+          break;
+      }
+    }
+    </script>
+
 <form id="contact-us">
     <label id="bottom-header">Contact Us</label>
 </form>
