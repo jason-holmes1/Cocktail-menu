@@ -5,25 +5,28 @@ document.addEventListener("DOMContentLoaded", () => {
   let drink = document.querySelector(".name");
   //Function to randomly display one of the Cocktails, along with its accompanying ingredients
   function displayRandom(drinksArray) {
-    console.log(drinksArray)
+    console.log(drinksArray);
     if (!drink || drinksArray.length === 0) {
       console.error("Fetched data is empty or invalid");
       return;
     }
-     const randomIndex = Math.floor(Math.random() * drinksArray.length);
+    const randomIndex = Math.floor(Math.random() * drinksArray.length);
     const randomCocktail = drinksArray[randomIndex];
     // console.log(randomCocktail);
     // // Update HTML content with the random cocktail and its ingredients
     // menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
     // menu.src = randomCocktail.strDrinkThumb;
     // ingredient.textContent = `Ingredients: ${randomCocktail.getIngredients}`;
-    menu.addEventListener("mousover", () => {
+    menu.addEventListener("mouseover", () => {
       const ingredients = getIngredients(randomCocktail);
-      menu.textContent = `Ingredients: ${ingredients}`;
+      menu.textContent = `Ingredients: 1 oz Campari,1 oz Red Sweet Vermouth, Twist of Lemon peel, Twist of Orange peel,`;
     });
 
     menu.addEventListener("mouseout", () => {
-      menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
+      menu.src =
+        "https://www.foodandwine.com/thmb/d7VXAa1cezTsQ37pS6jYY2YX3YQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Americano-Cocktail-FT-RECIPE0123-4130dd6c79394106a8fb5948057a2bc5.jpg";
+      menu.textContent =
+        "Pour the Campari and vermouth over ice into glass, add a splash of soda water and garnish with half orange slice.";
     });
   }
   //!checks for a match in the dropdown menu
@@ -71,21 +74,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //! Function to demonstrate fetching data and storing it as a variable
   const main = async () => {
-   try {
-    const fetchedData = await fetchData();
-    if (fetchedData) {
-      const drinksArray = fetchedData.drinks;
-      displayRandom(drinksArray);
-      console.log(drinksArray);
-      matchDrink(drinksArray);
-    } else {
-      console.error("Error: Fetch data is empty or invalid");
+    try {
+      const fetchedData = await fetchData();
+      if (fetchedData) {
+        const drinksArray = fetchedData.drinks;
+        displayRandom(drinksArray);
+        console.log(drinksArray);
+        matchDrink(drinksArray);
+      } else {
+        console.error("Error: Fetch data is empty or invalid");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-};
-  
- main();
- 
+  };
+
+  main();
 });
