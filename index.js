@@ -5,19 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let ingredient = document.querySelector(".ingredients");
   let drink = document.querySelector(".name");
   //Function to randomly display one of the Cocktails, along with its accompanying ingredients
-  function displayRandom(drinksArray) {
+  function displayIngredients(drinksArray) {
     console.log(drinksArray);
-    if (!drink || drinksArray.length === 0) {
-      console.error("Fetched data is empty or invalid");
-      return;
-    }
+    
     const randomIndex = Math.floor(Math.random() * drinksArray.length);
     const randomCocktail = drinksArray[randomIndex];
-    // console.log(randomCocktail);
-    // // Update HTML content with the random cocktail and its ingredients
-    // menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
-    // menu.src = randomCocktail.strDrinkThumb;
-    // ingredient.textContent = `Ingredients: ${randomCocktail.getIngredients}`;
     menu.addEventListener("mouseover", () => {
       const ingredients = getIngredients(randomCocktail);
       menu.textContent = `Ingredients: 1 oz Campari,1 oz Red Sweet Vermouth, Twist of Lemon peel, Twist of Orange peel,`;
@@ -34,9 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   //!checks for a match in the dropdown menu
-  function matchDrink(drinksArray, selectedDrink) {
+  function matchDrink(drinksArray, dropDown) {
     for (const cocktail of drinksArray) {
-      if (cocktail.strDrink == selectedDrink) {
+      if (cocktail.strDrink == dropDown.textContent) {
         detailImage.src = cocktail.strDrinkThumb;
         menu.textContent = `Cocktail: ${cocktail.strDrink}`;
         rating.textContent = `Alcoholic: ${cocktail.strAlcoholic}`;
@@ -82,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const fetchedData = await fetchData();
       if (fetchedData) {
         const drinksArray = fetchedData.drinks;
-        displayRandom(drinksArray);
+        displayIngredients(drinksArray);
         console.log(drinksArray);
         matchDrink(drinksArray);
       } else {
