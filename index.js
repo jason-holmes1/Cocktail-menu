@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   let menu = document.getElementById("cocktail-detail");
+  let image = document.querySelector(".detail-image");
   let dropDown = document.getElementById("category");
   let ingredient = document.querySelector(".ingredients");
   let drink = document.querySelector(".name");
@@ -23,10 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     menu.addEventListener("mouseout", () => {
-      menu.src =
-        "https://www.foodandwine.com/thmb/d7VXAa1cezTsQ37pS6jYY2YX3YQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Americano-Cocktail-FT-RECIPE0123-4130dd6c79394106a8fb5948057a2bc5.jpg";
+      image.src =
+       "https://www.foodandwine.com/thmb/d7VXAa1cezTsQ37pS6jYY2YX3YQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Americano-Cocktail-FT-RECIPE0123-4130dd6c79394106a8fb5948057a2bc5.jpg";
       menu.textContent =
         "Pour the Campari and vermouth over ice into glass, add a splash of soda water and garnish with half orange slice.";
+        drink.textContent = "Americano"
+        menu.append(image);
+        menu.append(drink);
     });
   }
   //!checks for a match in the dropdown menu
