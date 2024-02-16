@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let menu = document.getElementById("cocktail-detail");
   let image = document.querySelector(".detail-image");
   let dropDown = document.getElementById("category");
-  let ingredient = document.querySelector(".ingredients");
+  let instructions = document.querySelector(".ingredients");
   let drink = document.querySelector(".name");
   //Function to randomly display one of the Cocktails, along with its accompanying ingredients
   function displayIngredients(drinksArray) {
@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const randomIndex = Math.floor(Math.random() * drinksArray.length);
     const randomCocktail = drinksArray[randomIndex];
-    menu.addEventListener("mouseover", () => {
-      const ingredients = getIngredients(randomCocktail);
+    menu.addEventListener("click", () => {
+     
       menu.textContent = `Ingredients: 1 oz Campari,1 oz Red Sweet Vermouth, Twist of Lemon peel, Twist of Orange peel,`;
     });
     dropDown.addEventListener("change", () => {
@@ -23,16 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (selectedCocktail) {
         image.src = selectedCocktail.strDrinkThumb;
-        ingredient.textContent = getIngredients(selectedCocktail);
-        drink.textContent = selectedCocktail.strDrink+" "+getIngredients(selectedCocktail);
+        instructions.textContent = selectedCocktail.strInstructions;
+        console.log(selectedCocktail.strInstructions);
+       
+        menu.append(instructions);
+        drink.textContent =
+          selectedCocktail.strDrink;
 
         const ingredients = getIngredients(selectedCocktail);
-        ingredient.textContent = `Ingredients: ${ingredients}`;
-        for (let i = 0; i < drinksArray.length; i++) {
+        instructions.textContent = `Ingredients: ${ingredients}`;
+        
           menu.textContent =
-            selectedCocktail.strInstructions +
+             selectedCocktail.strInstructions +
             selectedCocktail.strIngredient`${i}`;
-        }
+        
       } else {
         console.error(`Cocktail '${selectedDrink}' not found in the data`);
       }
