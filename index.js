@@ -1,3 +1,4 @@
+// ! need to run npm install -g live-server, and then live-server
 document.addEventListener("DOMContentLoaded", () => {
   let menu = document.getElementById("cocktail-detail");
   let image = document.querySelector(".detail-image");
