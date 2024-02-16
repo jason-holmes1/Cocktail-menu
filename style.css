@@ -8,7 +8,7 @@ body {
     padding: 1rem;
     text-align: center;
     background-color: #fafafa;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM-4eC8sKjqkoAKE5a82A1P9VwulM2XXF6SQ&usqp=CAU);
+    background-image: url(https://images.squarespace-cdn.com/content/v1/5b987a08fcf7fd72c8443362/1537920538368-DKHS67LMZXVUK8XQ0L2U/dark-rustic-wood-background-12.jpg?format=1500w);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,7 +22,9 @@ header {
     background-color: #2F4F4F;
 }
 h3{
-    color: wheat
+    font: size 24px;;
+    font-family: 'Franklin Gothic Medium';
+    color: white
 }
 h2{
     color: black;
