@@ -10,13 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Fetched data is empty or invalid");
       return;
     }
-    const randomIndex = Math.floor(Math.random() * drinksArray.length);
+     const randomIndex = Math.floor(Math.random() * drinksArray.length);
     const randomCocktail = drinksArray[randomIndex];
-    console.log(randomCocktail);
-    // Update HTML content with the random cocktail and its ingredients
-    menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
-    ingredient.textContent = `Ingredients: ${randomCocktail.getIngredients}`;
-    menu.addEventListener("mouseover", () => {
+    // console.log(randomCocktail);
+    // // Update HTML content with the random cocktail and its ingredients
+    // menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
+    // menu.src = randomCocktail.strDrinkThumb;
+    // ingredient.textContent = `Ingredients: ${randomCocktail.getIngredients}`;
+    menu.addEventListener("mousover", () => {
       const ingredients = getIngredients(randomCocktail);
       menu.textContent = `Ingredients: ${ingredients}`;
     });
@@ -70,12 +71,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //! Function to demonstrate fetching data and storing it as a variable
   const main = async () => {
-    const fetchedData = fetchData();
-    const drinksArray = fetchedData.PromiseResult;
-    displayRandom(drinksArray);
-    console.log(drinksArray);
-    matchDrink(drinksArray);
-  };
-
-  main();
+   try {
+    const fetchedData = await fetchData();
+    if (fetchedData) {
+      const drinksArray = fetchedData.drinks;
+      displayRandom(drinksArray);
+      console.log(drinksArray);
+      matchDrink(drinksArray);
+    } else {
+      console.error("Error: Fetch data is empty or invalid");
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+  
+ main();
+ 
 });
