@@ -28,8 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const ingredients = getIngredients(selectedCocktail);
         ingredient.textContent = `Ingredients: ${ingredients}`;
-
-        menu.textContent = selectedCocktail.strInstructions;
+        for (let i = 0; i < drinksArray.length; i++) {
+          menu.textContent =
+            selectedCocktail.strInstructions +
+            selectedCocktail.strIngredient`${i}`;
+        }
       } else {
         console.error(`Cocktail '${selectedDrink}' not found in the data`);
       }
@@ -44,17 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       menu.append(drink);
     });
   }
-  //!checks for a match in the dropdown menu
-  function matchDrink(drinksArray, dropDown) {
-    for (const cocktail of drinksArray) {
-      if (cocktail.strDrink == dropDown.textContent) {
-        detailImage.src = cocktail.strDrinkThumb;
-        menu.textContent = `Cocktail: ${cocktail.strDrink}`;
-        rating.textContent = `Alcoholic: ${cocktail.strAlcoholic}`;
-        return;
-      }
-    }
-  }
+
   //! stores all of the ingredients in an array
   function getIngredients(cocktail) {
     let ingredients = [];
@@ -70,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return ingredients.join(", ");
   }
   //! Function to fetch data from the API and store it as a variable
-  const fetchData = async (startindex,limit) => {
+  const fetchData = async (startindex, limit) => {
     try {
       const response = await fetch(
         "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a"
@@ -90,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //! Function to demonstrate fetching data and storing it as a variable
   const main = async () => {
     try {
-      const fetchedData = await fetchData(1,1000);
+      const fetchedData = await fetchData(1, 1000);
       if (fetchedData) {
         const drinksArray = fetchedData.drinks;
         displayIngredients(drinksArray);
