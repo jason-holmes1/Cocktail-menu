@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 import("node-fetch").then((module) => {
   const fetch = module.default;
   // Your code using fetch goes here
@@ -14,7 +15,6 @@ function displayRandom(fetchedData) {
   // Update HTML content with the random cocktail and its ingredients
   menu.textContent = `Cocktail: ${randomCocktail.strDrink}`;
   ingredient.textContent = `Ingredients: ${randomCocktail.getIngredients}`;
- // dropDown.textContent = `Glass: ${randomCocktail.strGlass}`;
   menu.addEventListener("mouseover", () => {
     const ingredients = getIngredients(randomCocktail);
     menu.textContent = `Ingredients: ${ingredients}`;
@@ -27,7 +27,7 @@ function displayRandom(fetchedData) {
 }
 function matchDrink(fetchedData){
       for (const cocktail of fetchedData) {
-    if (cocktail.strDrink === selectedDrink) {
+    if (cocktail.strDrink == selectedDrink) {
     
       detailImage.src = cocktail.strDrinkThumb;
       menu.textContent = `Cocktail: ${cocktail.strDrink}`;
@@ -76,3 +76,4 @@ const main = async () => {
 
 
 main();
+});
