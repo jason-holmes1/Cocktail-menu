@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (selectedCocktail) {
         image.src = selectedCocktail.strDrinkThumb;
-
-        drink.textContent = selectedCocktail.strDrink;
+        ingredient.textContent = getIngredients(selectedCocktail);
+        drink.textContent = selectedCocktail.strDrink+" "+getIngredients(selectedCocktail);
 
         const ingredients = getIngredients(selectedCocktail);
         ingredient.textContent = `Ingredients: ${ingredients}`;
