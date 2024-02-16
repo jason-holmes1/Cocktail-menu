@@ -8,6 +8,7 @@ body {
     padding: 1rem;
     text-align: center;
     background-color: #fafafa;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM-4eC8sKjqkoAKE5a82A1P9VwulM2XXF6SQ&usqp=CAU);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,6 +20,9 @@ header {
     width: 100%;
     color: white;
     background-color: #2F4F4F;
+}
+h3{
+    color: wheat
 }
 h2{
     color: black;
